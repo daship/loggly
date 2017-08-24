@@ -10,7 +10,7 @@ namespace LogglyWebRequest.model
     {
         private char DoubleQuote = '"'; //34
         private char SingleQuote = (char)39; 
-        public DateTime timestamp { get; set; }
+        //public DateTime timestamp { get; set; }
         public LEVEL level { get; set; }
         public string hostName { get; set; }
         public string process { get; set; }
@@ -34,7 +34,7 @@ namespace LogglyWebRequest.model
         private string Json_timestamp =>
                  string.Format("{0}timestamp{0}: {0}{1}{2}{0}"
                 , DoubleQuote
-                , timestamp.ToString("yyyy-MM-ddTHH:mm:ss.fff")
+                , DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff")
                 , "+0800");
         private string Json_level =>  string.Format("{0}level{0}: {0}{1}{0}", DoubleQuote, level);
         private string Json_hostName => string.Format("{0}hostName{0}: {0}{1}{0}", DoubleQuote, hostName);
